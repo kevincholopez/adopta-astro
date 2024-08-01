@@ -1,0 +1,73 @@
+---
+import { Image } from "astro:assets";
+import logoAdopta from "../images/header/logo.webp";
+import '../styles/header.css'
+
+
+---
+
+<header class="bg-white fixed top-0 left-0 h-32 w-full z-50 p-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <button class="max-[1024px]:block hidden nav-btn fixed top-12 left-7" id="openMenuMobile">
+            <i class="fas fa-bars"></i>
+        </button>
+        <Image class="max-[1024px]:fixed max-[1024px]:top-7 max-[1024px]:right-7" src={logoAdopta} alt="logoAdopta" width={75} />
+        <h1 class="text-3xl font-bold max-[1024px]:hidden block">Fundacion Adopta La Plata</h1>
+        <nav class="max-[1024px]:hidden block">
+            <ul class="flex space-x-4">
+                <li>
+                    <a href="#" class="text-black hover:text-[#69033a]"
+                        >Inicio</a>
+                </li>
+                <li>
+                    <a href="#" class="text-black hover:text-[#69033a]"
+                        >Sobre nosotros</a>
+                </li>
+                <li>
+                    <a href="#" class="text-black hover:text-[#69033a]"
+                        >Adopta</a>
+                </li>
+                <li>
+                    <a href="#" class="text-black hover:text-[#69033a]"
+                        >Contactenos</a>
+                </li>
+                <li>
+                    <a href="#" class="text-black hover:text-[#69033a]"
+                        >Ingresar</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="nav nav-black bodyMenuMobile">
+            <div class="nav nav-red">
+                <div class="nav nav-white">
+                    <button class="nav-btn close-btn" id="closeMenuMobile">
+                        <i class="fas fa-times"></i>
+                    </button>
+
+                    <Image src={logoAdopta}
+                        alt="logoAdopta" class="logo"/>
+
+                    <ul class="list">
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Sobre nosotros</a></li>
+                        <li><a href="#">Adopta</a></li>
+                        <li><a href="#">Contactenos</a></li>
+                        <li><a href="#">Ingresar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script>
+            const openMenuMobile = document.querySelector("#openMenuMobile")
+            const closeMenuMobile = document.querySelector("#closeMenuMobile")
+            const nav = document.querySelectorAll('.nav');
+            openMenuMobile.addEventListener("click", () => {
+                nav.forEach(navElement => navElement.classList.add('visible'))
+            })
+            closeMenuMobile.addEventListener("click", () => {
+                nav.forEach(navElement => navElement.classList.remove('visible'))
+            })
+        </script>
+    </div>
+</header>
+
